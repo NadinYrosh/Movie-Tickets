@@ -33,12 +33,12 @@ $(document).ready(function(){
   //  $(".earlyPrice").empty();
   //  $(".regularPrice").empty();
 
-   var date = $("select").val();
+   var date = $("#dateVal").val();
    var chosenTime = $("input:radio[name=inlineRadioOptions]:checked").val();
    var age = $("#age").val();
 
    var newTicket = new TicketPrice(age, date, chosenTime);
-   console.log(newTicket);
+   console.log(date);
 
 
   });
