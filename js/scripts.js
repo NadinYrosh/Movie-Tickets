@@ -8,6 +8,12 @@ var timesFunction = function() {
   return regularPrice;
 };
 
+function TicketPrice(age, date, time){
+  this.userAge = age;
+  this.inputDate = date;
+  this.chosenTime = time;
+}
+
 
 
 
@@ -15,36 +21,28 @@ var timesFunction = function() {
 
 $(document).ready(function(){
 
+  var timePrices = timesFunction();
+
+  for (j = 0; j < timePrices.length; j++) {
+      $(".regularPrice").append("<label class='radio-inline'><input type='radio' name='inlineRadioOptions' id='inlineRadio1' value='" + timePrices[j]+ "'>" + timePrices[j] + ":45</label>");
+  }
+
  $("form#date").submit(function(event){
    event.preventDefault();
 
-   var age = $("#age").val();
-   console.log(age);
-
-   $(".earlyPrice").empty();
-   $(".regularPrice").empty();
+  //  $(".earlyPrice").empty();
+  //  $(".regularPrice").empty();
 
    var date = $("select").val();
+   var chosenTime = $("input:radio[name=inlineRadioOptions]:checked").val();
+   var age = $("#age").val();
 
-   var timePrices = timesFunction();
+   var newTicket = new TicketPrice(age, date, chosenTime);
+   console.log(newTicket);
 
-   console.log(timePrices);
-
-   for (j = 0; j < timePrices.length; j++) {
-     if(timePrices[j] <= 13) {
-       $(".earlyPrice").append("<label class='radio-inline'><input type='radio' name='inlineRadioOptions' id='inlineRadio1' value='" + timePrices[j]+ "'>" + timePrices[j] + ":45</label>");
-     }
-     if(timePrices[j] > 13) {
-       $(".regularPrice").append("<label class='radio-inline'><input type='radio' name='inlineRadioOptions' id='inlineRadio1' value='" + timePrices[j]+ "'>" + timePrices[j] + ":45</label>");
-     }
-   }
-
-   $("#times").show();
 
   });
-  $("form#time").submit(function(event){
-    event.preventDefault();
-    var chosenTime = $("input:radio[name=inlineRadioOptions]:checked").val();
-    console.log(chosenTime);
-  });
+
+
+
 });
