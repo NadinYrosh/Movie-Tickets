@@ -11,9 +11,15 @@
 
 <body>
   <div class="container">
+
+    <form id = "date">
+    <h2>Are you under 11 y.o. ?</h2>
+    <select id= "age" class="form-control">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
     <br>
     <h2>Please Select a Movie Date</h2>
-    <form>
       <select class="form-control">
         <option>Tuesday - 4/5/16</option>
         <option>Wednesday - 4/6/16</option>
@@ -26,18 +32,20 @@
       <br>
       <button type="submit">Submit</button>
     </form>
+
     <br>
-    <div id = "times">
-      <h2>Please Select a Movie Time</h2>
-      <div class="earlyPrice">
-        
+
+    <form id = "time">
+      <div id = "times">
+        <h2>Please Select a Movie Time</h2>
+        <div class="earlyPrice">
+        </div>
+        <div class="regularPrice">
+        </div>
+        <br>
+        <button type="submit">Choose time</button>
       </div>
-      <div class="regularPrice">
-
-
-      </div>
-    </div>
-
+    </form>
 
   </div>
 </body>
